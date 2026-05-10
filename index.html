@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sahara Flash LiveScore</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+    <div class="logo">
+        <h1>Sahara <span>Flash</span></h1>
+        <p>LiveScore Pro Max</p>
+    </div>
+
+    <nav>
+        <ul>
+            <li onclick="showSection('live')">Live</li>
+            <li onclick="showSection('fixtures')">Fixtures</li>
+            <li onclick="showSection('standings')">Standings</li>
+            <li onclick="showSection('news')">News</li>
+        </ul>
+    </nav>
+
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Search teams..." onkeyup="searchTeams()">
+    </div>
+
+</header>
+
+<!-- MAIN -->
+<main>
+
+<!-- LIVE SECTION -->
+<section id="live-section" class="section active">
+
+    <h2 class="section-title">🔴 Live Matches</h2>
+
+    <!-- REGION BUTTONS -->
+    <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:10px;">
+        <button onclick="switchRegion('europe')">Europe</button>
+        <button onclick="switchRegion('asia')">Asia</button>
+        <button onclick="switchRegion('africa')">Africa</button>
+        <button onclick="switchRegion('australia')">Australia</button>
+    </div>
+
+    <div id="live-matches" class="matches-grid"></div>
+
+</section>
+
+<!-- FIXTURES -->
+<section id="fixtures-section" class="section">
+
+    <h2 class="section-title">📅 All Fixtures</h2>
+
+    <div id="fixtures" class="matches-grid"></div>
+
+</section>
+
+<!-- STANDINGS -->
+<section id="standings-section" class="section">
+
+    <h2 class="section-title">🏆 Standings</h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Pos</th>
+                <th>Team</th>
+                <th>Pts</th>
+            </tr>
+        </thead>
+
+        <tbody id="standings-body"></tbody>
+
+    </table>
+
+</section>
+
+<!-- NEWS -->
+<section id="news-section" class="section">
+
+    <h2 class="section-title">📰 News</h2>
+
+    <div id="news-content"></div>
+
+</section>
+
+</main>
+
+<!-- MATCH MODAL -->
+<div id="team-modal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">×</span>
+
+        <div id="modal-team-header"></div>
+
+        <iframe
+            id="live-video"
+            width="100%"
+            height="300"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+</div>
+
+<!-- SCRIPT -->
+<script src="script.js"></script>
+
+</body>
+</html>
